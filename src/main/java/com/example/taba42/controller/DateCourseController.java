@@ -31,4 +31,10 @@ public class DateCourseController {
 
         return ResponseEntity.ok("GET 요청이 성공적으로 처리되었습니다.");
     }
+
+    @PostMapping("/reset")
+    public ResponseEntity<String> resetConversation() {
+        dateCourseService.resetConversation();
+        return ResponseEntity.ok("대화가 초기화되었습니다.");
+    }
 }

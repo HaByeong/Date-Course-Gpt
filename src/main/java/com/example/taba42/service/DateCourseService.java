@@ -15,8 +15,19 @@ import java.util.List;
 
 @Service
 public class DateCourseService {
-
     private static RestTemplate restTemplate = new RestTemplate();
+    private List<Message> messages = new ArrayList<>();
+
+    // 첫 번째 메시지 설정
+    // Constructor
+    public DateCourseService() {
+        // 첫 번째 메시지 설정
+        Message firstMessage = Message.builder()
+                .role("assistant")
+                .content(new DateCourseRequest().toPromptString())
+                .build();
+        messages.add(firstMessage);
+    }
 
     //Gpt 설정 바디 및 헤더 HttpEntity를 만듬
     public HttpEntity<ChatGptRequest> createHttpEntity(ChatGptRequest chatGptRequest){
@@ -46,21 +57,30 @@ public class DateCourseService {
 
     public ChatGptResponse askQuestionToChatGpt(DateCourseRequest dateCourseRequest) {
         Message message = Message.builder()
-                .role("assistant")
-                .content(dateCourseRequest.toPromptString())
+                .role("user")
+                .content(String.valueOf(dateCourseRequest.getUser_cost()))  // int를 String으로 변환
                 .build();
-        List<Message> messages = new ArrayList<>();
         messages.add(message);
-        return this.getResponse(
+
+        ChatGptResponse response = this.getResponse(
                 this.createHttpEntity(
                         ChatGptRequest.builder()
                                 .model(ChatGptConfig.MODEL)
-                                //.prompt(dateCourseRequest.toPromptString())
-                                .messages(messages)
+                                .messages(new ArrayList<>(messages))  // 이전 대화 내용을 함께 전달
                                 .maxTokens(ChatGptConfig.MAX_TOKEN)
                                 .temperature(ChatGptConfig.TEMPERATURE)
                                 .topP(ChatGptConfig.TOP_P)
                                 .build()));
+
+        // GPT의 응답을 messages 리스트에 추가
+        messages.add(Message.builder().role("assistant").content(response.getChoices().get(0).getMessage().getContent()).build());
+
+        return response;
+    }
+    public void resetConversation() {
+        Message firstMessage = messages.get(0);
+        this.messages.clear();
+        this.messages.add(firstMessage);
     }
 
 }
