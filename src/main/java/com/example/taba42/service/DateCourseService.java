@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class DateCourseService {
-    private String API_KEY = "";
+
     private static RestTemplate restTemplate = new RestTemplate();
 
     //Gpt 설정 바디 및 헤더 HttpEntity를 만듬
@@ -23,7 +23,7 @@ public class DateCourseService {
         HttpHeaders headers = new HttpHeaders();
         //headers.setContentType(MediaType.parseMediaType(ChatGptConfig.MEDIA_TYPE));
         headers.add("Content-Type", "application/json");
-        headers.add("Authorization", "Bearer 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");
+        headers.add("Authorization", "Bearer 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");
         return new HttpEntity<>(chatGptRequest, headers);
     }
 
