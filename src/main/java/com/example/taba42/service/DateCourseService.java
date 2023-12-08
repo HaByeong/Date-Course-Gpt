@@ -23,7 +23,7 @@ public class DateCourseService {
         HttpHeaders headers = new HttpHeaders();
         //headers.setContentType(MediaType.parseMediaType(ChatGptConfig.MEDIA_TYPE));
         headers.add("Content-Type", "application/json");
-        headers.add("Authorization", "Bearer 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");
+        headers.add("Authorization", "Bearer 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");
         return new HttpEntity<>(chatGptRequest, headers);
     }
 
