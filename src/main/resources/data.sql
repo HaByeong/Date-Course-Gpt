@@ -1,0 +1,10 @@
+insert into places values(1,'홍대','10:00','맥도날드','식당', 3000, 3.5);
+insert into places values(2,'홍대','9:00','five guys','식당', 3000, 3.5);
+insert into places values(3,'건대','22:00','롯데리아','식당', 3000, 3.5);
+insert into places values(4,'건대','1:00','버거킹','식당', 3000, 3.5);
+insert into places values(5,'단대','14:00','맘스터치','식당', 3000, 3.5);
+insert into places values(6,'단대','13:00','김밥천국','식당', 3000, 3.5);
+insert into places values(7,'고대','11:00','한솥','식당', 3000, 3.5);
+insert into places values(8,'고대','10:00','vips','식당', 3000, 3.5);
+insert into places values(9,'연대','10:00','us-steak','식당', 3000, 3.5);
+insert into places values(10,'연대','10:00','kor-beear','식당', 3000, 3.5);
