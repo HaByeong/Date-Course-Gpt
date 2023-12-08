@@ -20,10 +20,11 @@ public class DateCourseService {
 
     //Gpt 설정 바디 및 헤더 HttpEntity를 만듬
     public HttpEntity<ChatGptRequest> createHttpEntity(ChatGptRequest chatGptRequest){
+        String token = System.getenv("BEARER_TOKEN");
         HttpHeaders headers = new HttpHeaders();
         //headers.setContentType(MediaType.parseMediaType(ChatGptConfig.MEDIA_TYPE));
         headers.add("Content-Type", "application/json");
-        headers.add("Authorization", "Bearer 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");
+        headers.add("Authorization", "Bearer " +token);
         return new HttpEntity<>(chatGptRequest, headers);
     }
 
