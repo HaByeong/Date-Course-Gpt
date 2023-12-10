@@ -58,7 +58,7 @@ public class DateCourseService {
     public ChatGptResponse askQuestionToChatGpt(DateCourseRequest dateCourseRequest) {
         Message message = Message.builder()
                 .role("user")
-                .content(String.valueOf(dateCourseRequest.getUser_cost()))  // int를 String으로 변환
+                .content(dateCourseRequest.getUserChat())  // int를 String으로 변환
                 .build();
         messages.add(message);
 
