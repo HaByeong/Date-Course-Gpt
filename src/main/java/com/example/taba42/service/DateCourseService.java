@@ -22,11 +22,21 @@ public class DateCourseService {
     // Constructor
     public DateCourseService() {
         // 첫 번째 메시지 설정
+
+
         Message firstMessage = Message.builder()
+                .role("system")
+                .content(new DateCourseRequest().PlaceInfo())
+                .build();
+
+        // 두 번째 메시지 설정
+        Message secondMessage = Message.builder()
                 .role("assistant")
                 .content(new DateCourseRequest().toPromptString())
                 .build();
+
         messages.add(firstMessage);
+        messages.add(secondMessage);
     }
 
     //Gpt 설정 바디 및 헤더 HttpEntity를 만듬
@@ -79,8 +89,10 @@ public class DateCourseService {
     }
     public void resetConversation() {
         Message firstMessage = messages.get(0);
+        Message secondMessage = messages.get(1);
         this.messages.clear();
         this.messages.add(firstMessage);
+        this.messages.add(secondMessage);
     }
 
 }
