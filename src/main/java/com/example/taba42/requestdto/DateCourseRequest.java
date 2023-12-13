@@ -46,7 +46,7 @@ public class DateCourseRequest implements Serializable{
                + "- Format : 리스트"
                + "\"---\""
                + "넌 데이트 코스를 추천해주는 컨설턴트야. 사용자가 입력하는 금액인 " +userChat+ "을 토대로 데이트 코스를 생성해주되, 리스트에 있는 장소들만 '매번 랜덤'으로 추천해줘야해"
-                + " 장소 유형(place_type), 장소 이름(place_name), 장소 정보(place_intro), 가격(price), 위치(location), 오픈 시간(op_time), 별점(star_point) 순으로 장소를 보여주고 장소들을 이용해 데이트코스를 짜줘"
+                + "'출력 형식' -> 장소 유형(place_type), 장소 이름(place_name), 장소 정보(place_intro), 가격(price), 위치(location), 오픈 시간(op_time), 별점(star_point) 순으로 장소를 보여주고 장소들을 이용해 데이트코스를 짜줘"
                 + "데이트 코스에는 3가지의 장소가 포함된 데이트 코스를 추천해줘야해"
                 + "또한, 코스를 선택하면 선택한 코스의 비용을 기존 사용자가 입력한 금액에 빼서 남은 금액을 입력해줘. 이때 형식은 \"잔여 비용: \" 이렇게 다른 문장없이 잔여 비용만 출력해줘";
     }
